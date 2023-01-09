@@ -14,7 +14,6 @@ const validateJWT = (req = request, res = response, next) => {
   // Verificar JWT
   try {
     const { uid } = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(uid);
     req.uid = uid;
     next();
   } catch (error) {
