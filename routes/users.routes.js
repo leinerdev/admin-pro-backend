@@ -12,7 +12,6 @@ const router = Router();
 router.get('/', validateJWT, getUsers);
 
 router.post('/', [
-    validateJWT,
     body('name', 'El nombre es obligatorio').not().isEmpty(),
     body('password', 'El password es obligatorio').not().isEmpty(),
     body('email', 'El email es obligatorio').isEmail(),
