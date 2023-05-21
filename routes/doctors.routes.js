@@ -8,6 +8,7 @@ const {
   createDoctor,
   updateDoctor,
   deleteDoctor,
+  getDoctorById
 } = require("../controllers/doctors.controller");
 const { validateFields } = require("../middlewares/validate-fields");
 const { validateJWT } = require("../middlewares/validate-jwt");
@@ -33,5 +34,9 @@ router.put("/:id", [
 router.delete("/:id", [
   validateJWT
 ], deleteDoctor);
+
+router.get("/:id", [
+  validateJWT
+], getDoctorById);
 
 module.exports = router;
